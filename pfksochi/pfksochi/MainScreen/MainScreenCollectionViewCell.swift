@@ -15,6 +15,8 @@ class MainScreenCollectionViewCell: UICollectionViewCell {
     var label: UILabel!
     var buttonUpvote: LGButton!
     var labelSecondary: UILabel!
+    var delegate: MainScreenUpvoteDelegate?
+    var indexOfCell = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
@@ -125,6 +127,11 @@ extension MainScreenCollectionViewCell {
     }
     
     @objc func pressedButtonLike(_ sender: Any?) {
-        
+        buttonUpvote.isSelected = !buttonUpvote.isSelected
+        if buttonUpvote.isSelected {
+            delegate?.upvoteCell(index: indexOfCell)
+        } else {
+            delegate?.downvoteCell(index: indexOfCell)
+        }
     }
 }

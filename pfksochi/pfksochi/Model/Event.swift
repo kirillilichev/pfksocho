@@ -12,5 +12,5 @@ class Event {
     var name: String?
     var likes: Int?
     var image: String?
-    
+    var enemyEvent = false
 }

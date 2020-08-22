@@ -13,4 +13,5 @@ let COLOR_PRIMARY = UIColor(red: 0.00, green: 0.18, blue: 0.30, alpha: 1.00)
 let COLOR_WHITE = UIColor.white
 let COLOR_ACCENT = UIColor(red: 0.98, green: 0.78, blue: 0.00, alpha: 1.00)
 let COLOR_DARK = UIColor.black
+let COLOR_YELLOW = UIColor(red: 0.98, green: 0.78, blue: 0.00, alpha: 1.00)
 

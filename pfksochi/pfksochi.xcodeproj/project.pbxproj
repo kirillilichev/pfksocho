@@ -28,6 +28,9 @@
 		ED12BF3D24F15040003F55FD /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED12BF3924F15040003F55FD /* OpenSans-Regular.ttf */; };
 		ED12BF3E24F15040003F55FD /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED12BF3A24F15040003F55FD /* OpenSans-SemiBold.ttf */; };
 		ED12BF4024F15AE0003F55FD /* MainScreenCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF3F24F15AE0003F55FD /* MainScreenCollectionViewHeader.swift */; };
+		ED12BF4224F16E3D003F55FD /* MainScreenCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4124F16E3D003F55FD /* MainScreenCollectionViewFooter.swift */; };
+		ED12BF4424F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4324F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift */; };
+		ED12BF4624F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4524F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		ED12BF3924F15040003F55FD /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		ED12BF3A24F15040003F55FD /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		ED12BF3F24F15AE0003F55FD /* MainScreenCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewHeader.swift; sourceTree = "<group>"; };
+		ED12BF4124F16E3D003F55FD /* MainScreenCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewFooter.swift; sourceTree = "<group>"; };
+		ED12BF4324F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewEnemyCell.swift; sourceTree = "<group>"; };
+		ED12BF4524F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewController+UpvoteDeleagate.swift"; sourceTree = "<group>"; };
 		F1F3E020C935D42AB3E8396E /* Pods-pfksochi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pfksochi.debug.xcconfig"; path = "Target Support Files/Pods-pfksochi/Pods-pfksochi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,8 +172,11 @@
 			children = (
 				ED12BF1024F111CF003F55FD /* MainScreenViewController.swift */,
 				ED12BF3124F1353D003F55FD /* MainScreenCollectionViewCell.swift */,
+				ED12BF4324F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift */,
 				ED12BF2B24F1320D003F55FD /* MainScreenViewController+CollectionView.swift */,
 				ED12BF3F24F15AE0003F55FD /* MainScreenCollectionViewHeader.swift */,
+				ED12BF4524F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift */,
+				ED12BF4124F16E3D003F55FD /* MainScreenCollectionViewFooter.swift */,
 				ED12BF2F24F13405003F55FD /* MainScreenViewController+Backend.swift */,
 			);
 			path = MainScreen;
@@ -295,9 +304,12 @@
 				ED12BF4024F15AE0003F55FD /* MainScreenCollectionViewHeader.swift in Sources */,
 				ED12BF3024F13405003F55FD /* MainScreenViewController+Backend.swift in Sources */,
 				ED12BF2E24F133AD003F55FD /* Event.swift in Sources */,
+				ED12BF4424F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift in Sources */,
 				ED12BF2124F112C2003F55FD /* TabBarViewController.swift in Sources */,
 				ED12BF2424F117D3003F55FD /* Colors.swift in Sources */,
 				ED12BF3624F14F41003F55FD /* Fonts.swift in Sources */,
+				ED12BF4624F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift in Sources */,
+				ED12BF4224F16E3D003F55FD /* MainScreenCollectionViewFooter.swift in Sources */,
 				ED12BF3424F14E07003F55FD /* Constraints.swift in Sources */,
 				ED12BF1124F111CF003F55FD /* MainScreenViewController.swift in Sources */,
 				ED12BF3224F1353D003F55FD /* MainScreenCollectionViewCell.swift in Sources */,

@@ -17,18 +17,35 @@ class MainScreenViewController: UIViewController {
         view.backgroundColor = COLOR_WHITE
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         setupDataOfEvents()
+        setupDataOfEventsEnemies()
         setupCollectionView()
+        
+        buttonEmotionalSearch = setupButtonEmotionalSearch()
     }
     
+    var setSelectedUpvotes = NSMutableSet()
     var events: [Event] = []
-
+    var eventsEnemies: [Event] = []
     
-    
+    var standartHeightButtonSearchMore = CGFloat(0)
+    var constaintBottomButtonSearchEmo: NSLayoutConstraint!
+    var buttonEmotionalSearch: UIButton!
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self.buttonEmotionalSearch != nil {
+            self.buttonEmotionalSearch.layer.cornerRadius = self.buttonEmotionalSearch.bounds.height / 2
+        }
     }
 
 }
 
 
 
+protocol MainScreenUpvoteDelegate {
+    func upvoteCell(index: Int)
+    func downvoteCell(index: Int)
+}
