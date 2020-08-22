@@ -1,0 +1,6 @@
+framework module Pods_pfksochi {
+  umbrella header "Pods-pfksochi-umbrella.h"
+
+  export *
+  module * { export * }
+}

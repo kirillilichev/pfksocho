@@ -11,12 +11,26 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        //        let tabBarViewContoller = TabBarViewController()
+        //        window?.makeKeyAndVisible()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                // Instantiate the desired view controller from the storyboard using the view controllers identifier
+                // Cast is as the custom view controller type you created in order to access it's properties and methods
+        let tabBarViewContoller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+        window?.rootViewController = tabBarViewContoller
+
         return true
     }
+
 
     // MARK: UISceneSession Lifecycle
 
