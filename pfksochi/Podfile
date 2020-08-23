@@ -11,6 +11,7 @@ target 'pfksochi' do
   # Pods for Astrological
   pod "CenteredCollectionView"
   pod "LGButton"
-  pod 'Kingfisher'
-
+  pod "Kingfisher"
+  pod 'ParallaxHeader'
+ 
 end

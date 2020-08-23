@@ -31,6 +31,12 @@
 		ED12BF4224F16E3D003F55FD /* MainScreenCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4124F16E3D003F55FD /* MainScreenCollectionViewFooter.swift */; };
 		ED12BF4424F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4324F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift */; };
 		ED12BF4624F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4524F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift */; };
+		ED12BF4924F1A77A003F55FD /* SochiApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4824F1A77A003F55FD /* SochiApi.swift */; };
+		ED12BF4B24F1BF17003F55FD /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4A24F1BF17003F55FD /* EventViewController.swift */; };
+		ED12BF4D24F1E6DD003F55FD /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4C24F1E6DD003F55FD /* DateConverter.swift */; };
+		ED12BF4F24F1E8EC003F55FD /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF4E24F1E8EC003F55FD /* Club.swift */; };
+		ED12BF5224F1F899003F55FD /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED12BF5124F1F899003F55FD /* SubmitViewController.swift */; };
+		ED93F37C24F20A1B00B76E36 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93F37B24F20A1B00B76E36 /* TicketViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		ED12BF4124F16E3D003F55FD /* MainScreenCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewFooter.swift; sourceTree = "<group>"; };
 		ED12BF4324F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewEnemyCell.swift; sourceTree = "<group>"; };
 		ED12BF4524F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainScreenViewController+UpvoteDeleagate.swift"; sourceTree = "<group>"; };
+		ED12BF4824F1A77A003F55FD /* SochiApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SochiApi.swift; sourceTree = "<group>"; };
+		ED12BF4A24F1BF17003F55FD /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		ED12BF4C24F1E6DD003F55FD /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
+		ED12BF4E24F1E8EC003F55FD /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		ED12BF5124F1F899003F55FD /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
+		ED93F37B24F20A1B00B76E36 /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		F1F3E020C935D42AB3E8396E /* Pods-pfksochi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pfksochi.debug.xcconfig"; path = "Target Support Files/Pods-pfksochi/Pods-pfksochi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +126,9 @@
 		ED12BF0B24F111CF003F55FD /* pfksochi */ = {
 			isa = PBXGroup;
 			children = (
+				ED93F37A24F209FB00B76E36 /* Ticket */,
+				ED12BF1224F111CF003F55FD /* Main.storyboard */,
+				ED12BF4724F1A767003F55FD /* Controller */,
 				ED12BF3724F1503F003F55FD /* OpenSans-Bold.ttf */,
 				ED12BF3824F15040003F55FD /* OpenSans-Light.ttf */,
 				ED12BF3924F15040003F55FD /* OpenSans-Regular.ttf */,
@@ -122,11 +137,12 @@
 				ED12BF2524F120A6003F55FD /* Model */,
 				ED12BF2224F117A6003F55FD /* Resources */,
 				ED12BF2724F120D8003F55FD /* TabBar */,
-				ED12BF1224F111CF003F55FD /* Main.storyboard */,
 				ED12BF2A24F12A8E003F55FD /* MainScreen */,
 				ED12BF1524F111D7003F55FD /* Assets.xcassets */,
 				ED12BF1724F111D7003F55FD /* LaunchScreen.storyboard */,
 				ED12BF1A24F111D7003F55FD /* Info.plist */,
+				ED12BF5024F1F841003F55FD /* Event */,
+				ED12BF5324F1F8B8003F55FD /* Submit */,
 			);
 			path = pfksochi;
 			sourceTree = "<group>";
@@ -144,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				ED12BF2824F120FE003F55FD /* Match.swift */,
+				ED12BF4E24F1E8EC003F55FD /* Club.swift */,
 				ED12BF2D24F133AD003F55FD /* Event.swift */,
 				ED12BF3524F14F41003F55FD /* Fonts.swift */,
 			);
@@ -180,6 +197,39 @@
 				ED12BF2F24F13405003F55FD /* MainScreenViewController+Backend.swift */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		ED12BF4724F1A767003F55FD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ED12BF4824F1A77A003F55FD /* SochiApi.swift */,
+				ED12BF4C24F1E6DD003F55FD /* DateConverter.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ED12BF5024F1F841003F55FD /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				ED12BF4A24F1BF17003F55FD /* EventViewController.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		ED12BF5324F1F8B8003F55FD /* Submit */ = {
+			isa = PBXGroup;
+			children = (
+				ED12BF5124F1F899003F55FD /* SubmitViewController.swift */,
+			);
+			path = Submit;
+			sourceTree = "<group>";
+		};
+		ED93F37A24F209FB00B76E36 /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				ED93F37B24F20A1B00B76E36 /* TicketViewController.swift */,
+			);
+			path = Ticket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,10 +356,16 @@
 				ED12BF2E24F133AD003F55FD /* Event.swift in Sources */,
 				ED12BF4424F17374003F55FD /* MainScreenCollectionViewEnemyCell.swift in Sources */,
 				ED12BF2124F112C2003F55FD /* TabBarViewController.swift in Sources */,
+				ED12BF4B24F1BF17003F55FD /* EventViewController.swift in Sources */,
 				ED12BF2424F117D3003F55FD /* Colors.swift in Sources */,
+				ED12BF5224F1F899003F55FD /* SubmitViewController.swift in Sources */,
+				ED12BF4F24F1E8EC003F55FD /* Club.swift in Sources */,
 				ED12BF3624F14F41003F55FD /* Fonts.swift in Sources */,
+				ED12BF4924F1A77A003F55FD /* SochiApi.swift in Sources */,
+				ED12BF4D24F1E6DD003F55FD /* DateConverter.swift in Sources */,
 				ED12BF4624F17503003F55FD /* MainScreenViewController+UpvoteDeleagate.swift in Sources */,
 				ED12BF4224F16E3D003F55FD /* MainScreenCollectionViewFooter.swift in Sources */,
+				ED93F37C24F20A1B00B76E36 /* TicketViewController.swift in Sources */,
 				ED12BF3424F14E07003F55FD /* Constraints.swift in Sources */,
 				ED12BF1124F111CF003F55FD /* MainScreenViewController.swift in Sources */,
 				ED12BF3224F1353D003F55FD /* MainScreenCollectionViewCell.swift in Sources */,

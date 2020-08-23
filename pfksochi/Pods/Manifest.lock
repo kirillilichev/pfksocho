@@ -10,6 +10,7 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - ParallaxHeader (3.0.0)
 
 DEPENDENCIES:
   - AHKNavigationController
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - Kingfisher
   - LGButton
   - Moya
+  - ParallaxHeader
 
 SPEC REPOS:
   trunk:
@@ -26,6 +28,7 @@ SPEC REPOS:
     - Kingfisher
     - LGButton
     - Moya
+    - ParallaxHeader
 
 SPEC CHECKSUMS:
   AHKNavigationController: 3b8d5177e1a9c6dde5d16964b97781dea88457bf
@@ -34,7 +37,8 @@ SPEC CHECKSUMS:
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   LGButton: 9f0a7f9d3030e3f504108342f6b66d64a429371b
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  ParallaxHeader: a343f55eb38f52a89c5820a77e14cf975b84e6aa
 
-PODFILE CHECKSUM: 0e4a5bf27db5bf78b881825b3a1c87fa08732f5a
+PODFILE CHECKSUM: 565e9f52d51357b62d004bf1fff8533dd7336ac7
 
 COCOAPODS: 1.9.3

@@ -17,14 +17,14 @@ class TabBarViewController: UITabBarController {
         let shopNavViewController = AHKNavigationController(rootViewController: shopViewController)
         
         let profileViewController = MainScreenViewController()
-        let profileNavViewController = AHKNavigationController(rootViewController: shopViewController)
+        let profileNavViewController = AHKNavigationController(rootViewController: profileViewController)
         
         
         self.viewControllers = [
             mainNavViewController,
-            calendarNavViewController,
-            shopNavViewController,
-            profileNavViewController
+//            calendarNavViewController,
+//            shopNavViewController,
+//            profileNavViewController
         ]
         
         let tabBarItemToday = UITabBarItem(title: nil, image: UIImage(named: "Calendar_Tab"), selectedImage: nil)

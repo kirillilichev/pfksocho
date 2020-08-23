@@ -33,6 +33,7 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.events.count == 0 { return 0}
         if section == 0 {
             return self.events.count + 1
         } else {
@@ -48,35 +49,42 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             if indexPath.row != self.events.count {
                 cell.delegate = self
                 cell.indexOfCell = indexPath.row
-                cell.imageViewPoster.kf.setImage(with: URL(string: self.events[indexPath.row].image!))
+                if let photo = self.events[indexPath.row].photo {
+                    cell.imageViewPoster.kf.setImage(with: URL(string: photo))
+
+                }
                 cell.label.text = events[indexPath.row].name
                 cell.buttonUpvote.titleString = String(events[indexPath.row].likes!)
                 cell.buttonUpvote.isHidden = false
                 cell.labelSecondary.text = "Подробнее"
-                
+                if setSelectedUpvotes.contains(events[indexPath.row].id!) {
+                        cell.buttonUpvote.leftImageSrc = UIImage(named: "downvote")
+                        cell.buttonUpvote.titleColor = COLOR_YELLOW
+                    cell.buttonUpvote.isSelected = true
+                    
+                } else {
+
+                    cell.buttonUpvote.leftImageSrc = UIImage(named: "Upvote")
+                    cell.buttonUpvote.titleColor = COLOR_DARK
+                    cell.buttonUpvote.isSelected = false
+                }
             } else {
                 cell.imageViewPoster.image = UIImage(named: "Plus-view")
                 cell.label.text = "Предложить свою"
                 cell.labelSecondary.text = ""
                 cell.buttonUpvote.isHidden = true
-
+                
             }
             
-            if setSelectedUpvotes.contains(indexPath.row) {
-                    cell.buttonUpvote.leftImageSrc = UIImage(named: "downvote")
-                    cell.buttonUpvote.titleColor = COLOR_YELLOW
 
-                
-            } else {
-
-                cell.buttonUpvote.leftImageSrc = UIImage(named: "Upvote")
-                cell.buttonUpvote.titleColor = COLOR_DARK
-            }
             cell.layoutSubviews()
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainScreenCollectionViewEnemyCell", for: indexPath) as! MainScreenCollectionViewEnemyCell
-            cell.imageViewPoster.kf.setImage(with: URL(string: self.eventsEnemies[indexPath.row].image!))
+            if let photo = self.eventsEnemies[indexPath.row].photo {
+                cell.imageViewPoster.kf.setImage(with: URL(string: photo))
+
+            }
             cell.label.text = eventsEnemies[indexPath.row].name
          
         
@@ -114,16 +122,19 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
             if kind == UICollectionView.elementKindSectionHeader {
 
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MainScreenCollectionViewHeader", for: indexPath) as! MainScreenCollectionViewHeader
-                let match = Match()
+                if matchCurrent != nil {
+                    let (date, time) = DateConverter.convertStringEmoviDateToString(stringDate: self.matchCurrent.date_time!)
+                    header.labelShortInfo.text = self.matchCurrent.stadium! + "\n" + date + "\n" + time
+                    header.imageViewHome.kf.setImage(with: URL(string: self.matchCurrent.home_club!.logo_url!))
+                    header.imageViewGuest.kf.setImage(with: URL(string: self.matchCurrent.guest_club!.logo_url!))
+                    header.labelHome.text = self.matchCurrent.home_club!.name
+                    header.labelGuest.text = self.matchCurrent.guest_club!.name
+                    header.labelCityHome.text = self.matchCurrent.home_club!.city
+                    header.labelCityGuest.text = self.matchCurrent.guest_club!.city
+                    header.labelBottom.text = "Планируемые акции"
+                }
                 header.labelTitle.text = "Следующий матч"
-                header.labelShortInfo.text = match.place! + "\n" + match.date! + "\n" + match.time!
-                header.imageViewHome.image = UIImage(named: "sochi")
-                header.imageViewGuest.image = UIImage(named: "spartak")
-                header.labelHome.text = match.teamHome!
-                header.labelGuest.text = match.teamGuest!
-                header.labelCityHome.text = match.cityHome!
-                header.labelCityGuest.text = match.cityGuest!
-                header.labelBottom.text = "Планируемые акции"
+                
                 return header
 
             } else if kind == UICollectionView.elementKindSectionFooter {
@@ -145,6 +156,33 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.showButtonEmotionalSearch()
             } else {
                 self.hideButtonEmotionalSearch()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == self.events.count {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                        // Instantiate the desired view controller from the storyboard using the view controllers identifier
+                        // Cast is as the custom view controller type you created in order to access it's properties and methods
+                let eventViewContoller = storyboard.instantiateViewController(withIdentifier: "SubmitViewController") as! SubmitViewController
+                eventViewContoller.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(eventViewContoller, animated: true)
+            } else {
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                        // Instantiate the desired view controller from the storyboard using the view controllers identifier
+                        // Cast is as the custom view controller type you created in order to access it's properties and methods
+                let eventViewContoller = storyboard.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+                eventViewContoller.eventCurrent = events[indexPath.row]
+                eventViewContoller.hidesBottomBarWhenPushed = true
+                if self.setSelectedUpvotes.contains(events[indexPath.row].id!) {
+                    eventViewContoller.pressed = true
+                }
+                self.navigationController?.pushViewController(eventViewContoller, animated: true)
             }
         }
     }

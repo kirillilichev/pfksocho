@@ -11,14 +11,14 @@ import UIKit
 
 extension MainScreenViewController: MainScreenUpvoteDelegate {
     func upvoteCell(index: Int) {
-        setSelectedUpvotes.add(index)
+        setSelectedUpvotes.add(events[index].id!)
         (self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! MainScreenCollectionViewCell).buttonUpvote.leftImageSrc = UIImage(named: "downvote")
         (self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! MainScreenCollectionViewCell).buttonUpvote.titleColor = COLOR_YELLOW
         incrementButtonUpvote(index: index)
 
     }
     func downvoteCell(index: Int) {
-         setSelectedUpvotes.remove(index)
+         setSelectedUpvotes.remove(events[index].id!)
         (self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! MainScreenCollectionViewCell).buttonUpvote.leftImageSrc = UIImage(named: "Upvote")
         (self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! MainScreenCollectionViewCell).buttonUpvote.titleColor = COLOR_DARK
         decrementButtonUpvote(index: index)
@@ -28,12 +28,31 @@ extension MainScreenViewController: MainScreenUpvoteDelegate {
     func incrementButtonUpvote(index: Int) {
         let button = (self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! MainScreenCollectionViewCell).buttonUpvote
         button?.titleString = String(Int(button!.titleString)! + 1)
+        self.events[index].likes = Int(button!.titleString)!
+        provider.request(.sendLike(userId: 1, eventId: self.events[index].id!)) { (result) in
+            switch result {
+            case .success(let resp):
+                print(resp.statusCode)
+            case .failure(let error):
+                print(error)
+            }
+        }
 
     }
     
     func decrementButtonUpvote(index: Int) {
         let button = (self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as! MainScreenCollectionViewCell).buttonUpvote
         button?.titleString = String(Int(button!.titleString)! - 1)
+        
+        self.events[index].likes = Int(button!.titleString)!
+        provider.request(.deleteLike(userId: 1, eventId: self.events[index].id!)) { (result) in
+            switch result {
+            case .success(let resp):
+                print(resp.statusCode)
+            case .failure(let error):
+                print(error)
+            }
+        }
 
     }
     
@@ -82,7 +101,13 @@ extension MainScreenViewController: MainScreenUpvoteDelegate {
     }
     
     @objc func pressedButtonEmotionalSearch() {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                         // Instantiate the desired view controller from the storyboard using the view controllers identifier
+                         // Cast is as the custom view controller type you created in order to access it's properties and methods
+                 let eventViewContoller = storyboard.instantiateViewController(withIdentifier: "TicketViewController") as! TicketViewController
+                 eventViewContoller.hidesBottomBarWhenPushed = true
+                 self.navigationController?.pushViewController(eventViewContoller, animated: true)
     }
 
     func showButtonEmotionalSearch() {

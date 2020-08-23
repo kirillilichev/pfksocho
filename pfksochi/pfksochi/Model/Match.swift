@@ -9,11 +9,19 @@
 import Foundation
 
 class Match: Decodable {
-    var date: String? = "22 августа, суббота"
-    var time: String? = "14:00 МСК"
-    var place: String? = "Стадион \"Фишт\""
-    var teamHome: String? = "Сочи"
-    var cityHome: String? = "Сочи"
-    var teamGuest: String? = "Спартак"
-    var cityGuest: String? = "Москва"
+
+    var id: Int?
+    var stadium: String?
+    var date_time: String?
+    var home_club: Club?
+    var guest_club: Club?
+    var season: String?
+    var tournament: String?
+//    "id": 1,
+//    "stadium": "Стадион \"Фишт\"",
+//    "date_time": "2020-08-22T14:00:00Z",
+//    "home_club": 2,
+//    "guest_club": 1,
+//    "season": null,
+//    "tournament": null
 }
